@@ -5,7 +5,15 @@ This repository implements a simple Yocto image with a custom layer. It is a yoc
 3. a custom layer that encapsulates the above functionality and
 4. a custom image that uses the custom layer
 
-The layer compiles the c binary from the included [hello_world.c](./files/hello_world.c) source, installs it in the image's `/usr/bin`, and uses the [hello-world-init](./files/hello-world-init) sysvinit script to install it as a startup service.
+## Contents
+- [layer.conf](./conf/layer.conf): The configuration file for the layer.
+- [hello-world.bb](./recipes-core/hello-world/hello-world.bb): The layer recipe
+- [hello_world.c](./recipes-core/hello-world/files/hello_world.c): The C source code
+- [hello-world-init](./recipes-core/hello-world/files/hello-world-init): The sysvinit init script
+- [hello-world-image.bb](./recipes-core/hello-world/images/hello-world-image.bb): The image recipe
+
+## Functionality
+The layer compiles the c binary from the included [hello_world.c](./recipes-core/hello-world/files/hello_world.c) source, installs it in the image's `/usr/bin`, and uses the [hello-world-init](./recipes-core/hello-world/files/hello-world-init) sysvinit script to install it as a startup service.
 
 ## Build Instructions
 In a `poky` repository, use the following commands to build the image:
