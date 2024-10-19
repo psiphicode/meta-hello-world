@@ -12,21 +12,10 @@ In a `poky` repository, use the following commands to build the image:
 ```sh
 git clone https://github.com/psiphicode/meta-hello-world
 source oe-init-build-env
-```
-Now edit `conf/bblayers.conf` to include the layer in the `BBLAYERS` variable. It should look something like this:
-```bb
-BBLAYERS ?= " \
-    /path/to/poky/meta \
-    /path/to/poky/meta-poky \
-    /path/to/poky/meta-yocto-bsp \
-    /path/to/poky/meta-hello-world \
-    "
-```
-
-Now build the image:
-```sh
+bitbake-layers add-layer ../meta-hello-world
 bitbake hello-world-image
 ```
+
 Finally run the image using qemu:
 ```sh
 runqemu hello-world-image kvm
