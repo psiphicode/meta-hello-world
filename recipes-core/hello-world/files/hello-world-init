@@ -1,0 +1,46 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          hello_world
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+
+# Copy the convention of function definitions as found in
+# meta-searcher/recipes-core/ssh-pubkey-server/files/ssh-pubkey-server-init
+
+start() {
+    echo "Running hello_world on boot..."
+    /usr/bin/hello_world &
+}
+
+stop() {
+    echo "Stopping hello_world..."
+}
+
+restart() {
+    echo "Restarting hello_world..."
+}
+
+# The service will be entered with one of the recognized cases, or else it
+# prints a Usage message and exits with error code 1.
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart|force-reload)
+        restart
+        ;;
+    *)
+        N=/etc/init.d/$NAME
+        echo "Usage: $N {start|stop|restart|force-reload}" >&2
+        exit 1
+        ;;
+esac
+
+exit 0
