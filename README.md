@@ -10,7 +10,7 @@ This repository implements a simple Yocto image with a custom layer. It is a yoc
 - [hello-world.bb](./recipes-core/hello-world/hello-world.bb): The layer recipe
 - [hello_world.c](./recipes-core/hello-world/files/hello_world.c): The C source code
 - [hello-world-init](./recipes-core/hello-world/files/hello-world-init): The sysvinit init script
-- [hello-world-image.bb](./recipes-core/hello-world/images/hello-world-image.bb): The image recipe
+- [hello-world-image.bb](./recipes-core/images/hello-world-image.bb): The image recipe
 
 ## Functionality
 The layer compiles the c binary from the included [hello_world.c](./recipes-core/hello-world/files/hello_world.c) source, installs it in the image's `/usr/bin`, and uses the [hello-world-init](./recipes-core/hello-world/files/hello-world-init) sysvinit script to install it as a startup service.
